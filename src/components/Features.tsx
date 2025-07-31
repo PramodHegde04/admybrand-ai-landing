@@ -1,40 +1,39 @@
-"use client"; // Required for Framer Motion components
+"use client";
 
 import { BarChart, Bot, FileText, ShoppingCart, Target, TrendingUp } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { MotionDiv } from "@/components/MotionDiv";
 
-// An array holding the data for our feature cards
 const featureData = [
   { 
     icon: <BarChart className="h-6 w-6" />, 
     title: "Market Trend Analysis", 
-    description: "Leverage predictive analytics to forecast market shifts with over 95% accuracy and stay ahead of the curve." 
+    description: "Leverage predictive analytics to forecast market shifts with over 95% accuracy." 
   },
   { 
     icon: <Target className="h-6 w-6" />, 
     title: "Ad Spend Optimization", 
-    description: "Our AI algorithm analyzes your campaign performance in real-time to maximize ROI by allocating your budget intelligently." 
+    description: "Our AI algorithm analyzes your campaign performance in real-time to maximize ROI." 
   },
   { 
     icon: <Bot className="h-6 w-6" />, 
     title: "AI Content Generation", 
-    description: "Go from idea to publication in minutes. Create compelling, high-converting copy for ads, emails, and social media." 
+    description: "Go from idea to publication in minutes. Create compelling, high-converting copy." 
   },
   { 
     icon: <TrendingUp className="h-6 w-6" />, 
     title: "Performance Tracking", 
-    description: "Monitor your key marketing metrics with our beautiful, intuitive dashboard. See what works and what doesn't, instantly." 
+    description: "Monitor your key marketing metrics with our beautiful, intuitive dashboard." 
   },
   { 
     icon: <ShoppingCart className="h-6 w-6" />, 
     title: "E-commerce Integration", 
-    description: "Sync with Shopify, WooCommerce, and other major platforms seamlessly to track sales and attribute revenue correctly." 
+    description: "Sync with Shopify, WooCommerce, and more to attribute revenue correctly." 
   },
   { 
     icon: <FileText className="h-6 w-6" />, 
     title: "Automated Reporting", 
-    description: "Receive beautiful, insightful reports delivered directly to your inbox daily, weekly, or monthly." 
+    description: "Receive beautiful, insightful reports delivered directly to your inbox." 
   },
 ];
 
@@ -44,7 +43,7 @@ export function Features() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">
-            Everything You Need, Nothing You Don't
+            Everything You Need, Nothing You Don&apos;t
           </h2>
           <p className="text-lg text-muted-foreground mt-3 max-w-2xl mx-auto">
             Unlock a suite of powerful, AI-driven features designed to give you an unfair advantage in the market.
