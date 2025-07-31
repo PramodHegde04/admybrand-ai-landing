@@ -53,12 +53,12 @@ const featureData = [
 const testimonialData = [
   { name: "Sarah L.", company: "CEO, TechBloom", quote: "This tool cut our marketing analysis time by 90%. An absolute game-changer.", avatar: "/avatars/sarah.png" },
   { name: "Mike R.", company: "Founder, Creative Co.", quote: "The AI content generation is scarily good. Our engagement rates have doubled.", avatar: "/avatars/mike.png" },
-  { name: "Jessica B.", company: "CMO, StartupX", quote: "I finally have a clear view of my ad spend ROI. I don't know how we operated without it.", avatar: "/avatars/jessica.png" },
+  { name: "Jessica B.", company: "CMO, StartupX", quote: "I finally have a clear view of my ad spend ROI. I don&apos;t know how we operated without it.", avatar: "/avatars/jessica.png" },
   { name: "David Chen", company: "E-commerce Manager", quote: "The e-commerce integration was seamless. We saw a 15% increase in attributable revenue.", avatar: "/avatars/david.png" }
 ];
 
 const faqData = [
-  { q: "What is ADmyBRAND AI Suite?", a: "It's an all-in-one marketing platform that uses AI for market analysis, ad optimization, content generation, and performance tracking." },
+  { q: "What is ADmyBRAND AI Suite?", a: "It&apos;s an all-in-one marketing platform that uses AI for market analysis, ad optimization, content generation, and performance tracking." },
   { q: "Is there a free trial?", a: "Yes, we offer a 14-day free trial on our Pro plan. No credit card is required to get started." },
   { q: "What integrations do you support?", a: "We support major e-commerce platforms like Shopify, social media platforms like Facebook, and analytics tools like Google Analytics." },
   { q: "Can I cancel my subscription at any time?", a: "Absolutely. You can cancel your subscription at any time from your account dashboard with no hidden fees." },
@@ -77,7 +77,7 @@ const Features = () => (
     <section id="features" className="w-full py-20 md:py-32">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Everything You Need, Nothing You Don't</h2>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Everything You Need, Nothing You Don&apos;t</h2>
           <p className="text-lg text-muted-foreground mt-3 max-w-2xl mx-auto">Unlock a suite of powerful, AI-driven features designed to give you an unfair advantage.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -108,7 +108,7 @@ const Testimonials = () => (
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Loved by Marketers Worldwide</h2>
-                    <p className="text-lg text-muted-foreground mt-3 max-w-2xl mx-auto">Don't just take our word for it. Here's what our customers say.</p>
+                    <p className="text-lg text-muted-foreground mt-3 max-w-2xl mx-auto">Don&apos;t just take our word for it. Here&apos;s what our customers say.</p>
                 </div>
                 <Carousel opts={{ align: "start", loop: true }} className="w-full max-w-5xl mx-auto">
                     <CarouselContent>
@@ -118,7 +118,7 @@ const Testimonials = () => (
                                     <Card className="bg-background/50 h-full flex flex-col">
                                         <CardContent className="flex flex-col items-center text-center justify-center p-6 flex-grow">
                                             <Image src={testimonial.avatar} alt={testimonial.name} width={72} height={72} className="rounded-full mb-4 border-2 border-primary/50" onError={(e) => { e.currentTarget.src = 'https://placehold.co/72x72/27272a/a1a1aa?text=A'; }} />
-                                            <p className="italic text-muted-foreground">"{testimonial.quote}"</p>
+                                            <p className="italic text-muted-foreground">&quot;{testimonial.quote}&quot;</p>
                                             <p className="font-bold mt-4">{testimonial.name}</p>
                                             <p className="text-sm text-muted-foreground">{testimonial.company}</p>
                                         </CardContent>
@@ -212,7 +212,7 @@ const Faq = () => (
             <div className="container mx-auto px-4 md:px-6 max-w-3xl">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Frequently Asked Questions</h2>
-                    <p className="text-lg text-muted-foreground mt-3">Have questions? We have answers. If you can't find what you're looking for, contact us.</p>
+                    <p className="text-lg text-muted-foreground mt-3">Have questions? We have answers. If you can&apos;t find what you&apos;re looking for, contact us.</p>
                 </div>
                 <Accordion type="single" collapsible className="w-full">
                     {faqData.map((item, index) => (
@@ -325,7 +325,7 @@ export default function Home() {
                   transition={{ duration: 0.8, delay: 0.2, ease: "backOut" }}
                 >
                   <Image
-                    src="/hero-visuals.jpg" // Updated path to your local image
+                    src="/hero-visuals.jpg"
                     alt="AI visualizing market trends, ad optimization, and content generation"
                     width={480}
                     height={480}
@@ -349,7 +349,7 @@ export default function Home() {
         <section className="w-full py-20 md:py-32 bg-secondary/30">
           <div className="container mx-auto px-4 md:px-6 max-w-3xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Revolutionize Your Marketing?</h2>
-            <p className="text-lg text-muted-foreground mb-8">Let's get in touch. Fill out the form below and one of our experts will contact you shortly.</p>
+            <p className="text-lg text-muted-foreground mb-8">Let&apos;s get in touch. Fill out the form below and one of our experts will contact you shortly.</p>
             <div className="max-w-xl mx-auto text-left">
               <ContactForm />
             </div>
