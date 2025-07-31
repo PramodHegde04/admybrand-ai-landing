@@ -2,14 +2,15 @@
 
 This is a modern, responsive, and animated landing page for "ADmyBRAND AI Suite," a fictional SaaS product. It was built as a comprehensive project showcasing a modern tech stack and UI/UX best practices.
 
-**Live Demo:** [https://your-project-name.vercel.app](https://your-project-name.vercel.app)
+**Live Demo:** [https://admybrand-ai-suite-mocha.vercel.app/](https://admybrand-ai-suite-mocha.vercel.app/)
 
 ---
 
 ## Features
 
--   **Modern UI/UX:** Implements 2025 design trends including glassmorphism and subtle gradients.
+-   **Modern UI/UX:** Implements current design trends including glassmorphism and subtle gradients.
 -   **Smooth Animations:** Elements animate into view on scroll using Framer Motion.
+-   **Interactive Pricing:** Features a dynamic pricing calculator that updates in real-time.
 -   **Fully Responsive:** Flawless design and functionality across mobile, tablet, and desktop devices.
 -   **Component-Based Architecture:** Built with a reusable component library via shadcn/ui.
 -   **Type-Safe Forms:** Includes a contact form with client-side validation using React Hook Form and Zod.
@@ -35,7 +36,7 @@ To run this project locally, follow these steps:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/admybrand-ai-suite.git](https://github.com/your-username/admybrand-ai-suite.git)
+    git clone [https://github.com/PraveenHegde18/admybrand-ai-suite.git]
     ```
 
 2.  **Navigate to the project directory:**
