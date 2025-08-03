@@ -2,7 +2,7 @@
 
 This is a modern, responsive, and animated landing page for "ADmyBRAND AI Suite," a fictional SaaS product. It was built as a comprehensive project showcasing a modern tech stack and UI/UX best practices.
 
-**Live Demo:** [https://admybrand-ai-suite-mocha.vercel.app/](https://admybrand-ai-suite-mocha.vercel.app/)
+**Live Demo:** [admybrand-ai-landing-two.vercel.app/](https://admybrand-ai-landing-two.vercel.app/)
 
 ---
 
