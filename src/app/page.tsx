@@ -1,3 +1,4 @@
+// src/app/page.tsx
 "use client";
 
 import React, { useState } from 'react';
@@ -24,11 +25,17 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Slider } from "@/components/ui/slider";
-import { MoveRight, Check, BarChart, Bot, FileText, ShoppingCart, Target, TrendingUp, Github, Linkedin, Twitter } from "lucide-react";
+import { MoveRight, Check, BarChart, Bot, FileText, ShoppingCart, Target, TrendingUp, Github, Linkedin, Twitter, Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from 'framer-motion';
@@ -53,12 +60,12 @@ const featureData = [
 const testimonialData = [
   { name: "Sarah L.", company: "CEO, TechBloom", quote: "This tool cut our marketing analysis time by 90%. An absolute game-changer.", avatar: "/avatars/sarah.png" },
   { name: "Mike R.", company: "Founder, Creative Co.", quote: "The AI content generation is scarily good. Our engagement rates have doubled.", avatar: "/avatars/mike.png" },
-  { name: "Jessica B.", company: "CMO, StartupX", quote: "I finally have a clear view of my ad spend ROI. I don&apos;t know how we operated without it.", avatar: "/avatars/jessica.png" },
+  { name: "Jessica B.", company: "CMO, StartupX", quote: "I finally have a clear view of my ad spend ROI. I don't know how we operated without it.", avatar: "/avatars/jessica.png" },
   { name: "David Chen", company: "E-commerce Manager", quote: "The e-commerce integration was seamless. We saw a 15% increase in attributable revenue.", avatar: "/avatars/david.png" }
 ];
 
 const faqData = [
-  { q: "What is ADmyBRAND AI Suite?", a: "It&apos;s an all-in-one marketing platform that uses AI for market analysis, ad optimization, content generation, and performance tracking." },
+  { q: "What is ADmyBRAND AI Suite?", a: "It's an all-in-one marketing platform that uses AI for market analysis, ad optimization, content generation, and performance tracking." },
   { q: "Is there a free trial?", a: "Yes, we offer a 14-day free trial on our Pro plan. No credit card is required to get started." },
   { q: "What integrations do you support?", a: "We support major e-commerce platforms like Shopify, social media platforms like Facebook, and analytics tools like Google Analytics." },
   { q: "Can I cancel my subscription at any time?", a: "Absolutely. You can cancel your subscription at any time from your account dashboard with no hidden fees." },
@@ -70,7 +77,78 @@ const contactFormSchema = z.object({
   message: z.string().min(10, { message: "Message must be at least 10 characters." }),
 });
 
+const navLinks = [
+    { href: "#features", label: "Features" },
+    { href: "#testimonials", label: "Testimonials" },
+    { href: "#pricing", label: "Pricing" },
+    { href: "#faq", label: "FAQ" },
+];
+
 // --- Section Components ---
+
+const Header = () => (
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm">
+      <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
+        <Link href="/" className="flex items-center gap-2">
+          <Bot className="h-6 w-6 text-primary" />
+          <span className="hidden font-bold sm:inline-block">ADmyBRAND AI</span>
+        </Link>
+        <nav className="hidden items-center gap-6 md:flex">
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+        <div className="flex items-center gap-4">
+          <div className="hidden md:flex">
+            <Button asChild>
+              <Link href="#pricing">Get Started</Link>
+            </Button>
+          </div>
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="outline" size="icon">
+                  <Menu className="h-5 w-5" />
+                  <span className="sr-only">Toggle Menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right">
+                <div className="grid gap-6 p-6">
+                  <Link href="/" className="flex items-center gap-2">
+                    <Bot className="h-6 w-6 text-primary" />
+                    <span className="font-bold">ADmyBRAND AI</span>
+                  </Link>
+                  <nav className="grid gap-4">
+                    {navLinks.map((link) => (
+                      <SheetClose key={link.label} asChild>
+                         <Link
+                           href={link.href}
+                           className="text-lg font-medium"
+                         >
+                           {link.label}
+                         </Link>
+                      </SheetClose>
+                    ))}
+                  </nav>
+                  <SheetClose asChild>
+                     <Button asChild>
+                       <Link href="#pricing">Get Started</Link>
+                     </Button>
+                  </SheetClose>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </div>
+      </div>
+    </header>
+);
 
 const Features = () => (
   <MotionDiv initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
@@ -299,66 +377,70 @@ const Footer = () => (
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center bg-background">
-      
-      {/* Hero Section */}
-      <MotionDiv initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="w-full">
-        <section className="w-full py-20 md:py-32 lg:py-40">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-16 items-center">
-              <div className="space-y-6">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-                  Supercharge Your Marketing with AI
-                </h1>
-                <p className="max-w-[600px] text-lg md:text-xl text-muted-foreground">
-                  ADmyBRAND AI Suite analyzes market trends, optimizes ad spend, and generates high-converting content. Stop guessing, start growing.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" className="shadow-lg shadow-primary/20">Get Started for Free <MoveRight className="ml-2 h-5 w-5" /></Button>
-                  <Button size="lg" variant="outline">Request a Demo</Button>
+    <div className="flex min-h-screen flex-col bg-background">
+      <Header />
+      <main className="flex-grow">
+     
+        {/* Hero Section */}
+        <MotionDiv initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="w-full">
+          <section className="w-full py-20 md:py-32 lg:py-40">
+            <div className="container mx-auto px-4 md:px-6">
+              <div className="grid gap-6 lg:grid-cols-2 lg:gap-16 items-center">
+                <div className="space-y-6">
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+                    Supercharge Your Marketing with AI
+                  </h1>
+                  <p className="max-w-[600px] text-lg md:text-xl text-muted-foreground">
+                    ADmyBRAND AI Suite analyzes market trends, optimizes ad spend, and generates high-converting content. Stop guessing, start growing.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button asChild size="lg" className="shadow-lg shadow-primary/20">
+                        <Link href="#pricing">Get Started for Free <MoveRight className="ml-2 h-5 w-5" /></Link>
+                    </Button>
+                    <Button size="lg" variant="outline">Request a Demo</Button>
+                  </div>
+                </div>
+                <div className="flex justify-center items-center">
+                  <MotionDiv
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8, delay: 0.2, ease: "backOut" }}
+                  >
+                    <Image
+                      src="/hero-visuals.jpg"
+                      alt="AI visualizing market trends, ad optimization, and content generation"
+                      width={480}
+                      height={480}
+                      className="rounded-2xl shadow-2xl shadow-purple-500/20"
+                      priority
+                      onError={(e) => { e.currentTarget.src = 'https://placehold.co/480x480/0d0d2b/a380e2?text=Visualize\nSuccess'; }}
+                    />
+                  </MotionDiv>
                 </div>
               </div>
-              <div className="flex justify-center items-center">
-                <MotionDiv
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.2, ease: "backOut" }}
-                >
-                  <Image
-                    src="/hero-visuals.jpg"
-                    alt="AI visualizing market trends, ad optimization, and content generation"
-                    width={480}
-                    height={480}
-                    className="rounded-2xl shadow-2xl shadow-purple-500/20"
-                    priority
-                  />
-                </MotionDiv>
+            </div>
+          </section>
+        </MotionDiv>
+
+        <Features />
+        <Testimonials />
+        <Pricing />
+        <Faq />
+
+        {/* Final CTA & Contact Section */}
+         <MotionDiv initial={{ opacity: 0.5 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="w-full">
+          <section id="contact" className="w-full py-20 md:py-32 bg-secondary/30">
+            <div className="container mx-auto px-4 md:px-6 max-w-3xl text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Revolutionize Your Marketing?</h2>
+              <p className="text-lg text-muted-foreground mb-8">Let&apos;s get in touch. Fill out the form below and one of our experts will contact you shortly.</p>
+              <div className="max-w-xl mx-auto text-left">
+                <ContactForm />
               </div>
             </div>
-          </div>
-        </section>
-      </MotionDiv>
-
-      <Features />
-      <Testimonials />
-      <Pricing />
-      <Faq />
-
-      {/* Final CTA & Contact Section */}
-       <MotionDiv initial={{ opacity: 0.5 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="w-full">
-        <section className="w-full py-20 md:py-32 bg-secondary/30">
-          <div className="container mx-auto px-4 md:px-6 max-w-3xl text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Revolutionize Your Marketing?</h2>
-            <p className="text-lg text-muted-foreground mb-8">Let&apos;s get in touch. Fill out the form below and one of our experts will contact you shortly.</p>
-            <div className="max-w-xl mx-auto text-left">
-              <ContactForm />
-            </div>
-          </div>
-        </section>
-      </MotionDiv>
-
+          </section>
+        </MotionDiv>
+      </main>
       <Footer />
-      
-    </main>
+    </div>
   );
 }
